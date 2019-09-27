@@ -9,4 +9,8 @@
       <PackageReference Include="MicroBatchFramework" Version="1.3.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Surveying3D.Core\Surveying3D.Core.csproj" />
+    </ItemGroup>
+
 </Project>
