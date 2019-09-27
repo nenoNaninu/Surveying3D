@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D.Core", "Surveying3D.Core\Surveying3D.Core.csproj", "{742367AA-9333-4888-BE22-B2454EC880F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D.Cli", "Surveying3D.Cli\Surveying3D.Cli.csproj", "{C3C6229B-530A-4326-A2EE-80E5A048390A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D.Core.Test", "Surveying3D.Core.Test\Surveying3D.Core.Test.csproj", "{A7FECD13-44B1-40B4-894D-CB9B73373FBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{742367AA-9333-4888-BE22-B2454EC880F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{742367AA-9333-4888-BE22-B2454EC880F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{742367AA-9333-4888-BE22-B2454EC880F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{742367AA-9333-4888-BE22-B2454EC880F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3C6229B-530A-4326-A2EE-80E5A048390A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C6229B-530A-4326-A2EE-80E5A048390A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C6229B-530A-4326-A2EE-80E5A048390A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C6229B-530A-4326-A2EE-80E5A048390A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7FECD13-44B1-40B4-894D-CB9B73373FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7FECD13-44B1-40B4-894D-CB9B73373FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7FECD13-44B1-40B4-894D-CB9B73373FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7FECD13-44B1-40B4-894D-CB9B73373FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
