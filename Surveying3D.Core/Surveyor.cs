@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using ObjLoader.Loader.Loaders;
 
@@ -8,18 +9,35 @@ namespace Surveying3D.Core
     {
         public static SurveyResults Survey(string modelPath)
         {
-            var objLoaderFactory = new ObjLoaderFactory();
-            var objLoader = objLoaderFactory.Create(new MaterialNullStreamProvider());
-            using (var fileStream = File.OpenRead(modelPath))
+            try
             {
-                LoadResult result = objLoader.Load(fileStream);
-                return Survey(result);
+                var objLoaderFactory = new ObjLoaderFactory();
+                var objLoader = objLoaderFactory.Create(new MaterialNullStreamProvider());
+                using (var fileStream = File.OpenRead(modelPath))
+                {
+                    LoadResult result = objLoader.Load(fileStream);
+                    return Survey(result);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("========================================================");
+                Console.WriteLine(modelPath + ". \n" + e.Message);
+                Console.WriteLine("========================================================");
+
+                throw new Exception(modelPath + "\n" + e.Message);
             }
         }
-        
+
         public static SurveyResults Survey(LoadResult objContent)
         {
+            if (objContent.Groups.SelectMany(x => x.Faces).Any(x => x.Count >= 4))
+            {
+                throw new Exception("The surface of this object is defined by more than 4 points.");
+            }
+            
             float totalVolume = 0f;
+
             foreach (var group in objContent.Groups)
             {
                 foreach (var face in group.Faces)
