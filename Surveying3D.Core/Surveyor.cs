@@ -6,18 +6,13 @@ namespace Surveying3D.Core
 {
     public static class Surveyor
     {
-        private static readonly IObjLoader _objLoader;
-        static Surveyor()
-        {
-            var objLoaderFactory = new ObjLoaderFactory();
-            _objLoader = objLoaderFactory.Create(new MaterialNullStreamProvider());
-        }
-
         public static SurveyResults Survey(string modelPath)
         {
+            var objLoaderFactory = new ObjLoaderFactory();
+            var objLoader = objLoaderFactory.Create(new MaterialNullStreamProvider());
             using (var fileStream = File.OpenRead(modelPath))
             {
-                LoadResult result = _objLoader.Load(fileStream);
+                LoadResult result = objLoader.Load(fileStream);
                 return Survey(result);
             }
         }

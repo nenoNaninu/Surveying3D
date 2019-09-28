@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using MicroBatchFramework;
 using Surveying3D.Core;
 using Utf8Json;
@@ -32,32 +33,39 @@ namespace Surveying3D.Cli
                 var line = streamReader.ReadLine();
                 pathList.Add(line);
             }
+            
+            string[] absolutePath = pathList.Select(Path.GetFullPath).ToArray();
 
-            var surveyResults = pathList.AsParallel().Select(Surveyor.Survey).ToList();
+            Dictionary<string, SurveyResults> surveyResults = absolutePath.AsParallel()
+                .Select(x => (Result: Surveyor.Survey(x), ModelPath: x))
+                .ToDictionary(x => x.ModelPath, x => x.Result);
 
             var jsonBytes = JsonSerializer.Serialize(surveyResults);
             var prettyJson = JsonSerializer.PrettyPrint(jsonBytes);
             Console.WriteLine(prettyJson);
 
             if (outputDir == null) return;
-            
-            Write2File(jsonBytes,outputDir);
+
+            Write2File(jsonBytes, outputDir);
         }
 
         [Command("search")]
-        public void Search(
+        public async Task Search(
             [Option("d", "search under root dir")] string rootDirectory,
             [Option("e", "extension to search")] string extension = "obj",
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null)
         {
-            string[] zipFilePaths = Directory.GetFiles(rootDirectory, $"*.{extension}", SearchOption.AllDirectories);
+            string[] relativePath = Directory.GetFiles(rootDirectory, $"*.{extension}", SearchOption.AllDirectories);
+            string[] absolutePath = relativePath.Select(Path.GetFullPath).ToArray();
 
-            Dictionary<string, SurveyResults> surveyResults = zipFilePaths.AsParallel()
-                .Select(x => (Result: Surveyor.Survey(x), modelPath: x))
-                .ToDictionary(x => x.modelPath, x => x.Result);
+            var surveyTasks = absolutePath
+                .Select(x => Task.Run(() => (Result: Surveyor.Survey(x), ModelPath: x)));
 
-            var jsonBytes = JsonSerializer.Serialize(surveyResults);
+            var surveyResults = await Task.WhenAll(surveyTasks);
+            var surveyDictionary = surveyResults.ToDictionary(x => x.ModelPath, x => x.Result);
+
+            var jsonBytes = JsonSerializer.Serialize(surveyDictionary);
             var prettyJson = JsonSerializer.PrettyPrint(jsonBytes);
             Console.WriteLine(prettyJson);
 
