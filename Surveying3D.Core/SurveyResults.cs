@@ -1,3 +1,5 @@
+using Utf8Json;
+
 namespace Surveying3D.Core
 {
     public readonly struct SurveyResults
@@ -14,6 +16,7 @@ namespace Surveying3D.Core
         /// <param name="width">x軸方向</param>
         /// <param name="depth">z軸方向</param>
         /// <param name="volume"></param>
+        [SerializationConstructor]
         public SurveyResults(float height, float width,float depth, float volume)
         {
             Height = height;

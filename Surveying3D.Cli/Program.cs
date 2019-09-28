@@ -1,12 +1,13 @@
-﻿using System;
+﻿using System.Threading.Tasks;
+using MicroBatchFramework;
 
 namespace Surveying3D.Cli
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            await BatchHost.CreateDefaultBuilder().RunBatchEngineAsync<CommandBase>(args);
         }
     }
 }
