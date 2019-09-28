@@ -1,15 +1,24 @@
 namespace Surveying3D.Core
 {
-    public class SurveyResults
+    public readonly struct SurveyResults
     {
-        public float Height { get; }
-        public float Width { get; }
-        public float Volume { get; }
+        public readonly float Height;
+        public readonly float Width;
+        public readonly float Volume;
+        public readonly float Depth;
 
-        public SurveyResults(float height, float width, float volume)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="height">y軸方向</param>
+        /// <param name="width">x軸方向</param>
+        /// <param name="depth">z軸方向</param>
+        /// <param name="volume"></param>
+        public SurveyResults(float height, float width,float depth, float volume)
         {
             Height = height;
             Width = width;
+            Depth = depth;
             Volume = volume;
         }
     }

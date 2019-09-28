@@ -1,12 +1,8 @@
 using System;
 using System.IO;
 using System.Numerics;
-using glTFLoader;
-using glTFLoader.Schema;
 using NUnit.Framework;
 using ObjLoader.Loader.Loaders;
-using SharpGLTF.Schema2;
-using Mesh = glTFLoader.Schema.Mesh;
 
 namespace Surveying3D.Core.Test
 {
@@ -81,7 +77,7 @@ namespace Surveying3D.Core.Test
                 var model_path = "/Users/neno/WorkSpace/CSharp/Surveying3D/Model/test.obj";
 //                var model_path = "/Users/neno/WorkSpace/DataSet/ForUnity/Beef/Beef0.5/Model.obj";
                 var fileStream = File.OpenRead(model_path);
-                var result = objLoader.Load(fileStream);
+                LoadResult result = objLoader.Load(fileStream);
                 Console.WriteLine(result);
                 Console.WriteLine("=====================");
                 foreach (var group in result.Groups)
