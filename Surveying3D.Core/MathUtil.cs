@@ -5,7 +5,7 @@ namespace Surveying3D.Core
 {
     public static class MathUtil
     {
-        public static float SarrusRule(Vector3 v1, Vector3 v2, Vector3 v3)
+        public static float SarrusRule(in Vector3 v1, in Vector3 v2, in Vector3 v3)
         {
             var positive1 = v1.X * v2.Y * v3.Z;
             var positive2 = v2.X * v3.Y * v1.Z;
