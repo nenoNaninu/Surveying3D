@@ -2,7 +2,8 @@
 
 namespace Surveying3D.Core
 {
-    public class Class1
+    public static class Surveyor
     {
+        
     }
 }
