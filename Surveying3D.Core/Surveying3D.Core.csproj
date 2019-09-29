@@ -6,10 +6,16 @@
     <AssemblyName>Surveying3D.Core</AssemblyName>
     <Version>1.0.0</Version>
     <Authors>nenoNaninu</Authors>
+    <Copyright>nenoNaninu</Copyright>
+    <Description>Calculate the volume, height, width and depth of the 3D model.</Description>
     <RepositoryUrl>https://github.com/nenoNaninu/Surveying3D</RepositoryUrl>
     <Title>Surveying3D.Core</Title>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CjClutter.ObjLoader" Version="1.0.0" />

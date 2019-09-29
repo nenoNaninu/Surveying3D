@@ -32,8 +32,7 @@ namespace Surveying3D.Cli
         public void List([Option(0)] string listPath,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
-            [Option("n", "")] string outputFileName = "result.json"
-        )
+            [Option("n", "")] string outputFileName = "result.json")
         {
             var pathList = new List<string>(256);
             using var streamReader = new StreamReader(listPath);
