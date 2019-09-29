@@ -28,7 +28,7 @@ namespace Surveying3D.Cli
             Write2File(bytes, outputDir, outputFileName);
         }
 
-        [Command("list")]
+        [Command("list",@"The path of the file describing the list of obj (for example, created with [find `pwd` -name *.obj])")]
         public void List([Option(0)] string listPath,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
@@ -57,7 +57,7 @@ namespace Surveying3D.Cli
             Write2File(jsonBytes, outputDir, outputFileName);
         }
 
-        [Command("search")]
+        [Command("search","Search and measure models with the specified extension under the specified directory.")]
         public async Task Search(
             [Option("d", "search under root dir")] string rootDirectory,
             [Option("o", "output dir, The default output is not a file, but the console")]

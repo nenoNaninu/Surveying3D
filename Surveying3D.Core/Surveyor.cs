@@ -12,6 +12,7 @@ namespace Surveying3D.Core
             try
             {
                 var objLoaderFactory = new ObjLoaderFactory();
+                //objLoaderは前に読み込んだやつを保持するので毎回新しく作らないといけない。
                 var objLoader = objLoaderFactory.Create(new MaterialNullStreamProvider());
                 using (var fileStream = File.OpenRead(modelPath))
                 {
