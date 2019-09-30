@@ -6,7 +6,7 @@
     <ToolCommandName>surveying3d</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
     <PackAsTool>true</PackAsTool>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>nenoNaninu</Authors>
      <Title>Surveying3D.Cli</Title>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>

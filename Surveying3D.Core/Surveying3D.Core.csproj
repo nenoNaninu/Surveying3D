@@ -9,7 +9,9 @@
     <Copyright>nenoNaninu</Copyright>
     <Description>Calculate the volume, height, width and depth of the 3D model.</Description>
     <RepositoryUrl>https://github.com/nenoNaninu/Surveying3D</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/nenoNaninu/Surveying3D</PackageProjectUrl>
     <Title>Surveying3D.Core</Title>
+    <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
