@@ -37,7 +37,7 @@ I prepared three commands.
 - search
   - Search for models with the specified extension (default is obj) under the specified directory and get the results for those models.
 
-If you start without giving command line arguments, you can see the following details.
+If you start without command line arguments, you can see the following details.
 ```
 $surveying3d
 
