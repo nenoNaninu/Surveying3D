@@ -10,7 +10,7 @@ dotnet add package Surveying3D --version 1.0.0
 ```
 - [CLI(.NET Core Global Tools)](https://www.nuget.org/packages/Surveying3D-Cli/)
 ```
-dotnet tool install --global Surveying3D-Cli --version 1.0.0
+dotnet tool install --global Surveying3D-Cli --version 1.0.1
 ```
 If you have never used .NET Global Tools, set the path. 
 - Linux/Mac
