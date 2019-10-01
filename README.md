@@ -22,7 +22,7 @@ Details are [here](https://docs.microsoft.com/ja-jp/dotnet/core/tools/global-too
 # How to use
 
 ## Class library
-The simplest use is to give a path.
+The simplest usage is to give a path.
 ```
 var results = Surveyor.Survey(pathToModel);
 ```
