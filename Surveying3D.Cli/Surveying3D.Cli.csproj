@@ -18,11 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Surveying3D.Core\Surveying3D.Core.csproj" />
+    <None Include="LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+    <ProjectReference Include="..\Surveying3D\Surveying3D.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

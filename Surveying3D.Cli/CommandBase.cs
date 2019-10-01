@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using MicroBatchFramework;
-using Surveying3D.Core;
 using Utf8Json;
 
 namespace Surveying3D.Cli
@@ -58,7 +56,7 @@ namespace Surveying3D.Cli
         }
 
         [Command("search","Search and measure models with the specified extension under the specified directory.")]
-        public async Task Search(
+        public void Search(
             [Option("d", "search under root dir")] string rootDirectory,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
@@ -68,11 +66,9 @@ namespace Surveying3D.Cli
             string[] relativePath = Directory.GetFiles(rootDirectory, $"*.{extension}", SearchOption.AllDirectories);
             string[] absolutePath = relativePath.Select(Path.GetFullPath).ToArray();
 
-            var surveyTasks = absolutePath
-                .Select(x => Task.Run(() => (Result: Surveyor.Survey(x), ModelPath: x)));
-
-            var surveyResults = await Task.WhenAll(surveyTasks);
-            var surveyDictionary = surveyResults.ToDictionary(x => x.ModelPath, x => x.Result);
+            var surveyDictionary = absolutePath.AsParallel()
+                .Select(x => (Result: Surveyor.Survey(x), ModelPath: x))
+                .ToDictionary(x => x.ModelPath, x => x.Result);
 
             var jsonBytes = JsonSerializer.Serialize(surveyDictionary);
             var prettyJson = JsonSerializer.PrettyPrint(jsonBytes);

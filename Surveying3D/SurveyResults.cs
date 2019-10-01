@@ -1,6 +1,6 @@
 using Utf8Json;
 
-namespace Surveying3D.Core
+namespace Surveying3D
 {
     public readonly struct SurveyResults
     {

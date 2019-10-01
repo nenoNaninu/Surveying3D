@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D.Core", "Surveying3D.Core\Surveying3D.Core.csproj", "{742367AA-9333-4888-BE22-B2454EC880F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D", "Surveying3D\Surveying3D.csproj", "{742367AA-9333-4888-BE22-B2454EC880F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D.Cli", "Surveying3D.Cli\Surveying3D.Cli.csproj", "{C3C6229B-530A-4326-A2EE-80E5A048390A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D.Core.Test", "Surveying3D.Core.Test\Surveying3D.Core.Test.csproj", "{A7FECD13-44B1-40B4-894D-CB9B73373FBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Surveying3D.Test", "Surveying3D.Test\Surveying3D.Test.csproj", "{A7FECD13-44B1-40B4-894D-CB9B73373FBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

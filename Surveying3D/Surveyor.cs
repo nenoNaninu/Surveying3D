@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using ObjLoader.Loader.Loaders;
 
-namespace Surveying3D.Core
+namespace Surveying3D
 {
     public static class Surveyor
     {

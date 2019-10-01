@@ -1,7 +1,7 @@
 using System.Numerics;
 using ObjLoader.Loader.Data.VertexData;
 
-namespace Surveying3D.Core
+namespace Surveying3D
 {
     public static class MathUtil
     {

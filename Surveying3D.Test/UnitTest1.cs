@@ -4,7 +4,7 @@ using System.Numerics;
 using NUnit.Framework;
 using ObjLoader.Loader.Loaders;
 
-namespace Surveying3D.Core.Test
+namespace Surveying3D.Test
 {
     public class Tests
     {
