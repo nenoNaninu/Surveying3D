@@ -1,39 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <ToolCommandName>surveying3d</ToolCommandName>
-    <PackageOutputPath>./nupkg</PackageOutputPath>
-    <PackAsTool>true</PackAsTool>
-    <Version>0.1.1</Version>
-    <Authors>nenoNaninu</Authors>
-     <Title>Surveying3D.Cli</Title>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <ToolCommandName>surveying3d</ToolCommandName>
+        <PackageOutputPath>./nupkg</PackageOutputPath>
+        <PackAsTool>true</PackAsTool>
+        <Version>1.0.1</Version>
+        <Authors>nenoNaninu</Authors>
+        <Title>Surveying3D.Cli</Title>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MicroBatchFramework" Version="1.3.0" />
-    <PackageReference Include="Utf8Json" Version="1.3.7" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="MicroBatchFramework" Version="1.3.0"/>
+        <PackageReference Include="Utf8Json" Version="1.3.7"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Include="LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Surveying3D\Surveying3D.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Surveying3D\Surveying3D.csproj"/>
+    </ItemGroup>
 
-  <PropertyGroup>
-    <PackageId>Surveying3D-Cli</PackageId>
-    <PackageVersion>$(Version)</PackageVersion>
-    <Authors>nenoNaninu</Authors>
-    <Copyright>nenoNaninu</Copyright>
-    <Description>Surveying3D commandline utility</Description>
-    <PackageProjectUrl>https://github.com/nenoNaninu/Surveying3D</PackageProjectUrl>
-    <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
+    <PropertyGroup>
+        <PackageId>Surveying3D-Cli</PackageId>
+        <PackageVersion>$(Version)</PackageVersion>
+        <Authors>nenoNaninu</Authors>
+        <Copyright>nenoNaninu</Copyright>
+        <Description>Surveying3D commandline utility</Description>
+        <PackageProjectUrl>https://github.com/nenoNaninu/Surveying3D</PackageProjectUrl>
+        <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
 
 </Project>

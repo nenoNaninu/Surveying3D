@@ -10,7 +10,7 @@ namespace Surveying3D.Cli
     public class CommandBase : BatchBase
     {
         [Command("test", "check one object")]
-        public void Test([Option(0)] string path,
+        public void Test([Option(0,"3d object path")] string path,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
             [Option("n", "output file name")] string outputFileName = "result.json")
@@ -27,7 +27,7 @@ namespace Surveying3D.Cli
         }
 
         [Command("list",@"The path of the file describing the list of obj (for example, created with [find `pwd` -name *.obj])")]
-        public void List([Option(0)] string listPath,
+        public void List([Option(0,"Text path that describes the model file path.")] string listPath,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
             [Option("n", "")] string outputFileName = "result.json")
