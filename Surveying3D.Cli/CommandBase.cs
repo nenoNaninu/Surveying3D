@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using MicroBatchFramework;
 using Utf8Json;
 
@@ -10,7 +12,7 @@ namespace Surveying3D.Cli
     public class CommandBase : BatchBase
     {
         [Command("test", "check one object")]
-        public void Test([Option(0,"3d object path")] string path,
+        public async Task Test([Option(0, "3d object path")] string path,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
             [Option("n", "output file name")] string outputFileName = "result.json")
@@ -23,11 +25,12 @@ namespace Surveying3D.Cli
 
             if (outputDir == null) return;
 
-            Write2File(bytes, outputDir, outputFileName);
+            await Write2File(bytes, outputDir, outputFileName, this.Context.CancellationToken);
         }
 
-        [Command("list",@"The path of the file describing the list of obj (for example, created with [find `pwd` -name *.obj])")]
-        public void List([Option(0,"Text path that describes the model file path.")] string listPath,
+        [Command("list", @"The path of the file describing the list of obj (for example, created with [find `pwd` -name *.obj])")]
+        public async Task List([Option(0, "Text path that describes the model file path.")]
+            string listPath,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
             [Option("n", "")] string outputFileName = "result.json")
@@ -52,11 +55,11 @@ namespace Surveying3D.Cli
 
             if (outputDir == null) return;
 
-            Write2File(jsonBytes, outputDir, outputFileName);
+            await Write2File(jsonBytes, outputDir, outputFileName, this.Context.CancellationToken);
         }
 
-        [Command("search","Search and measure models with the specified extension under the specified directory.")]
-        public void Search(
+        [Command("search", "Search and measure models with the specified extension under the specified directory.")]
+        public async Task Search(
             [Option("d", "search under root dir")] string rootDirectory,
             [Option("o", "output dir, The default output is not a file, but the console")]
             string outputDir = null,
@@ -76,10 +79,10 @@ namespace Surveying3D.Cli
 
             if (outputDir == null) return;
 
-            Write2File(jsonBytes, outputDir, outputFileName);
+            await Write2File(jsonBytes, outputDir, outputFileName, this.Context.CancellationToken);
         }
 
-        private static void Write2File(byte[] jsonBytes, string outputDir, string fileName)
+        private async Task Write2File(byte[] jsonBytes, string outputDir, string fileName, CancellationToken cancellationToken)
         {
             if (outputDir != null)
             {
@@ -102,8 +105,9 @@ namespace Surveying3D.Cli
                     Console.WriteLine($"output to {outputPath}");
                 }
 
-                using var streamWriter = new BinaryWriter(new FileStream(outputPath, FileMode.Create));
-                streamWriter.Write(jsonBytes);
+                await using var fileStream = new FileStream(outputPath, FileMode.Create);
+
+                await fileStream.WriteAsync(jsonBytes, cancellationToken);
             }
         }
     }

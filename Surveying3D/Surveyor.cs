@@ -54,7 +54,7 @@ namespace Surveying3D
                     totalVolume += MathUtil.SarrusRule(vec1, vec2, vec3) / 6f;
                 }
             }
-
+            
             var vertices = objContent.Vertices;
             var height = vertices.Max(x => x.Y) - vertices.Min(x => x.Y);
             var width = vertices.Max(x => x.X) - vertices.Min(x => x.X);
