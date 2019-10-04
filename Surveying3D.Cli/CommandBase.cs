@@ -106,7 +106,6 @@ namespace Surveying3D.Cli
                 }
 
                 await using var fileStream = new FileStream(outputPath, FileMode.Create);
-
                 await fileStream.WriteAsync(jsonBytes, cancellationToken);
             }
         }
