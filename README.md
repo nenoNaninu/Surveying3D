@@ -62,3 +62,14 @@ test: check one object
 - In wavefront obj, the surface can be defined with 3 or more points (triangle, square ...), but this algorithm assumes that the surface definition is 3 points (triangle).
 
 - If the face is not closed, the exact volume cannot be calculated.
+
+# External Library
+- [ObjLoader](https://github.com/chrisjansson/ObjLoader)
+  - Copyright (c) 2015 Chris Jansson
+  - Released under the [MIT License](https://github.com/chrisjansson/ObjLoader/blob/master/LICENSE.md)
+- [Utf8Json](https://github.com/neuecc/Utf8Json)
+  - Copyright (c) 2017 Yoshifumi Kawai
+  - Released under the [MIT License](https://github.com/neuecc/Utf8Json/blob/master/LICENSE)
+- [MicroBatchFramework](https://github.com/Cysharp/MicroBatchFramework)
+  - Copyright (c) 2019 Cysharp, Inc.
+  - Released under the [MIT License](https://github.com/Cysharp/MicroBatchFramework/blob/master/LICENSE)
